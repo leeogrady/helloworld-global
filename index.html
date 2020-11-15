@@ -8,7 +8,7 @@
 
 	<!-- Latest compiled and minified CSS -->
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/flag-icon-css/3.5.0/css/flag-icon.min.css" integrity="sha512-Cv93isQdFwaKBV+Z4X8kaVBYWHST58Xb/jVOcV9aRsGSArZsgAnFIhMpDoMDcFNoUtday1hdjn0nGp3+KZyyFw==" crossorigin="anonymous" />
 </head>
 <body >
     <!-- Fixed navbar -->
@@ -21,7 +21,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">helloworld-global</a>
+          <a class="navbar-brand" href="#"><span class="flag-icon flag-icon-cn"></span> helloworld-global</a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
           <ul class="nav navbar-nav">
@@ -36,12 +36,17 @@
 
       <!-- Main jumbotron for a primary marketing message or call to action -->
       <div class="jumbotron">
-        <h1>Hello</h1>
-        <p>Is it me you're looking for?</p>
+        <h1>你好</h1>
+        <p>你是不是在找我？</p>
+      </div>
+      <div>
+        <h3>Is WeChat?</h3>
+        <p id='wechat'></p>
       </div>
       <hr/>
       <div class="footer">
-        <div title="The container ID is the ID of the container (or host)">Container ID: HOSTNAME
+        <div title="The container ID is the ID of the container (or host)">Container ID: HOSTNAME<br>
+          User Agent: <span id="useragent"></span>span>
         </div>
       </div>
     </div> <!-- /container -->
@@ -51,5 +56,16 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/js-cookie/2.1.1/js.cookie.min.js"></script>
 	<!-- Latest compiled and minified JavaScript -->
 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+  <script type='text/javascript'>
+    $('document').ready(function(){
+      var isWeChat = /micromessenger/i.test(navigator.userAgent);
+      if(isWeChat) {
+        $('#wechat').html("Yes");
+      } else {
+        $('#wechat').html("No");
+      }
+      $('#useragent').html(navigator.userAgent);
+    });
+  </script>
 </body>
 </html>
